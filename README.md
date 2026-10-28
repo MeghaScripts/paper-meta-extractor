@@ -28,14 +28,6 @@ missing fields are left empty / `null`.
 - **SOTA claims**: numeric claims from abstract sentences (metric and baseline inferred from the
   wording) plus table rows read with pdfplumber (the paper's own row vs the strongest other row).
 
-## Official vs third-party GitHub links
-Every GitHub URL in the PDF is normalised to `https://github.com/org/repo` and a blocklist of
-common dependencies (pytorch, transformers, ...) is dropped. Remaining links are scored: higher if
-they appear in the abstract or on the first page, or right after wording such as "code is
-available" or "our implementation"; links that only appear in the reference list are penalised.
-The best link is returned (and `is_official_code` is true when it has strong evidence), otherwise
-`null`.
-
 ## Known limitations
 Model/dataset lists use a curated pattern list and may need extending; table claims are heuristic
 and should be spot-checked with `verify_output.py`.
